@@ -8,5 +8,10 @@ This folder aims at showcasing how one would go about creating a plant disease d
 
 For the dataset, model creation, and training, this tutorial have been followed: [https://www.kaggle.com/code/atharvaingle/plant-disease-classification-resnet-99-2](https://www.kaggle.com/code/atharvaingle/plant-disease-classification-resnet-99-2).
 
-## Use
+## How to use
+
+Under `src/` you can find three files:
+- `resnet9.py`: this defines the ResNet9 model architecture. As long as you're working with the supplied model, you don't have to touch the content of this file
+- `disease_detector.py`: this file is where you might find yourself adding code if you wanted more functionality. It's a wrapper on the machine learning model, and provides a simple interface to deal with it.
+- `main.py`: this is an example script on how to use the `DiseaseDetector` class defined in `disease_detector.py`
 
