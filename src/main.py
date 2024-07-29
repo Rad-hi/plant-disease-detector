@@ -1,14 +1,9 @@
-# For reading files
 import os
 import glob
-
-# For reading the input images (inference)
 from PIL import Image
 
-# For visualization
 import numpy as np
 import cv2
-
 
 from disease_detector import DiseaseDetector
 
@@ -16,13 +11,14 @@ from disease_detector import DiseaseDetector
 RED = (0, 0, 255)
 BLUE = (255, 0, 0)
 GREEN = (0, 255, 0)
-TEST_IMAGES = os.path.expanduser('~/Desktop/plant-disease/test_imgs/*.jpeg')
-MODEL_PATH = os.path.expanduser('~/Desktop/plant-disease/model/plant-disease-model.pth')
+PROJ_DIR: str = '/'.join(os.path.dirname(os.path.realpath(__file__)).split('/')[:-1])
+TEST_IMAGES = os.path.expanduser(f'{PROJ_DIR}/test_imgs/*.jpeg')
+MODEL_PATH = os.path.expanduser(f'{PROJ_DIR}/model/plant-disease-model.pth')
 
 
 def main():
 
-    detector = DiseaseDetector(MODEL_PATH)
+    detector = DiseaseDetector(MODEL_PATH, auto_gen=True)
 
     # Read the test images
     imgs = []
